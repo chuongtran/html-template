@@ -1,0 +1,64 @@
+$layouts: 'start' 'center' 'end' 'space-around' 'space-between';
+
+.layout-row {
+    display: flex;
+    @each $layout in $layouts {
+        $align: #{$layout};
+        @if $layout == 'start' {
+            $align: 'flex-start'
+        }
+        @if $layout == 'end' {
+            $align: 'flex-end'
+        }
+        @each $layout2 in $layouts {
+            $align2: #{$layout2};
+            @if $layout2 == 'start' {
+                $align2: 'flex-start'
+            }
+            @if $layout2 == 'end' {
+                $align2: 'flex-end'
+            }
+            &.layout-align-#{$layout}-#{$layout2} {
+                align-items: #{$align2};
+                justify-content: #{$align};
+            }
+        }
+    }
+
+    .flex {
+        display: flex;
+        flex: 1;
+    }
+}
+
+.layout-column {
+    display: flex;
+    flex-flow: column;
+    @each $layout in $layouts {
+        $align: #{$layout};
+        @if $layout == 'start' {
+            $align: 'flex-start'
+        }
+        @if $layout == 'end' {
+            $align: 'flex-end'
+        }
+        @each $layout2 in $layouts {
+            $align2: #{$layout2};
+            @if $layout2 == 'start' {
+                $align2: 'flex-start'
+            }
+            @if $layout2 == 'end' {
+                $align2: 'flex-end'
+            }
+            &.layout-align-#{$layout}-#{$layout2} {
+                align-items: #{$align2};
+                justify-content: #{$align};
+            }
+        }
+    }
+
+    .flex {
+        display: flex;
+        flex: 1;
+    }
+}
